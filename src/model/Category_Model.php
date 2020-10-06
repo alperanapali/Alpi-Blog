@@ -105,7 +105,8 @@
             ON file.id = posts.file_id
             JOIN category
             ON category.id = posts.category_id
-            WHERE category.id = :id AND posts.header LIKE :search';
+            WHERE category.id = :id AND posts.header LIKE :search
+            ORDER BY timestamp DESC';
 
             $obj = $this->db->prepare($sql);
 
