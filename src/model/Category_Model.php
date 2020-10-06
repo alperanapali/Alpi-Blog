@@ -154,12 +154,12 @@
 
         public function getAllCommentsById($id) {
             $sql = 'SELECT
-            USER.firstname,
-            USER.lastname,
+            user.firstname,
+            user.lastname,
                 comments.*
             FROM
                 comments
-            LEFT JOIN USER ON USER.id = comments.user_id
+            LEFT JOIN user ON user.id = comments.user_id
             WHERE post_id = :post_id';
 
             $obj = $this->db->prepare($sql);

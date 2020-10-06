@@ -17,6 +17,7 @@ class Controller {
         $model_name = get_class($this) . '_Model';
         $model_file = 'model/' . $model_name . '.php';
 
+        //Auto - Loader kinda?
         // Load a Model-File only if it exists
         if (file_exists($model_file)) {
             require $model_file;
@@ -24,8 +25,4 @@ class Controller {
         }
 
     }
-
-    //TODO make function index abstract
-    //abstract function index();
-
 }
