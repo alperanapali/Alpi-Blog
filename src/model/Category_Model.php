@@ -81,21 +81,46 @@
             ON file.id = posts.file_id
             JOIN category
             ON category.id = posts.category_id WHERE posts.id = :id';
-    
+
             $obj = $this->db->prepare($sql);
-    
+
             $obj->execute(array(
                 ":id" => $id
             ));
-            
+
             if($obj->rowCount() > 0) {
                 $data = $obj->fetchAll(PDO::FETCH_OBJ);
                 return $data;
             }
-        
+
             return false;
         }
-        
+
+        //TODO add slug to database and the slugify class
+        public function getPostBySlug($slug) {
+            $sql = 'SELECT user.firstname, user.lastname, file.image, file.thumb, category.category_name, posts.*
+            FROM user
+            JOIN posts
+            ON user.id = posts.user_id
+            JOIN file
+            ON file.id = posts.file_id
+            JOIN category
+            ON category.id = posts.category_id WHERE posts.slug = :slug';
+
+            $obj = $this->db->prepare($sql);
+
+            $obj->execute(array(
+                ":slug" => $slug
+            ));
+
+            if($obj->rowCount() > 0) {
+                $data = $obj->fetchAll(PDO::FETCH_OBJ);
+                return $data;
+            }
+
+            return false;
+        }
+
         public function getPostsByCategoryId($id, $search) {
             $sql = 'SELECT user.firstname, user.lastname, file.image, file.thumb, category.category_name, posts.*
             FROM user
@@ -157,8 +182,7 @@
             user.firstname,
             user.lastname,
                 comments.*
-            FROM
-                comments
+            FROM comments
             LEFT JOIN user ON user.id = comments.user_id
             WHERE post_id = :post_id';
 
@@ -185,5 +209,5 @@
                 ":post_id" => $postId
             ));
         }
-        
+
     }

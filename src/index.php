@@ -28,5 +28,8 @@ include 'lib/Controller.php';
 include 'lib/Debug.php';
 include 'lib/Helper.php';
 
+//Header to slug converter
+include 'lib/Slugify.php';
+
 include 'lib/Application.php';
 $app = new Application();

@@ -6,15 +6,26 @@
 <div class="container">
     <!-- Loop to get all data for individual article -->
     <?php foreach($data as $item) : ?>
+
+        <!-- Post Header -->
         <h1 class="text-center mt-5"><?= $item->header; ?></h1>
+
+        <!-- Post Description -->
         <div class="p-2 mb-3 text-center">
             Article posted on <?= $item->timestamp ?> in Category <a class="btn btn-light" href="<?= URL ?>category/showCategory/<?= $item->category_id ?>"><?= $item->category_name; ?></a>
         </div>
 
+        <!-- Post Image -->
         <div class="landscape-img">
             <img src="<?= URL ?><?= $item->image ?>" alt="">
         </div>
 
+        <!-- Posted by -->
+        <div class="p-2 mb-3">
+            Posted by: <?= $item->firstname . ' ' . $item->lastname ?>
+        </div>
+
+        <!-- Post Content -->
         <p class="mt-5"><?= $item->content; ?></p>
 
         <!-- If user is logged in enable comment feature -->

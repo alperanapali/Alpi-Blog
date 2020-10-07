@@ -20,7 +20,7 @@
     
             // 2. Step: insert Post ----------------------------------------------------------------------------------------------
     
-            $sql = 'INSERT INTO posts(header, content, user_id, file_id, category_id) VALUES (:header, :content, :user_id, :file_id, :category_id)';
+            $sql = 'INSERT INTO posts(header, content, user_id, file_id, category_id, slug) VALUES (:header, :content, :user_id, :file_id, :category_id, :slug)';
             
             $obj = $this->db->prepare($sql);
             
@@ -30,6 +30,7 @@
                 ":user_id" => $userId,
                 ":file_id" => $file_id,
                 ":category_id" => $category_id,
+                ":slug" => Slugify::generateSlug($post_header),
             ));
     
             return $result1 && $result2;
