@@ -27,7 +27,7 @@
 <div class="card-columns">
 <?php foreach($this->posts as $item) : ?>
     <div class="card">
-        <a href="<?= URL; ?>category/show/<?= $item->id; ?>">
+        <a href="<?= URL; ?>category/show/<?= $item->slug; ?>">
             <img class="card-img-top" src="<?= URL . $item->image ?>" alt="Card image cap">
         </a>
         <div class="card-body">
@@ -35,7 +35,7 @@
             <p class="card-text mb-0 text-muted"><small><?= $item->category_name ?></small></p>
                 
             <h5 class="card-title"><?= $item->header ?></h5>
-            <p class="card-text"><?= substr($item->content, 0, 100) ?>...<a href="<?= URL; ?>category/show/<?= $item->id; ?>">read more</a></p>
+            <p class="card-text"><?= substr($item->content, 0, 100) ?>...<a href="<?= URL; ?>category/show/<?= $item->slug; ?>">read more</a></p>
             <div class="row">
                 <div class="col">
                     <p class="card-text"><small class="text-muted"><?= $item->timestamp ?></small></p>

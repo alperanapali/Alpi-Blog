@@ -21,6 +21,7 @@
         </div>
 
         <!-- Posted by -->
+        <img src="<?= DEFAULT_IMG ?>" width="24" height="24" class="mr-2" alt="" style="border-radius: 50%">
         <div class="p-2 mb-3">
             Posted by: <?= $item->firstname . ' ' . $item->lastname ?>
         </div>
@@ -30,7 +31,7 @@
 
         <!-- If user is logged in enable comment feature -->
         <?php if($user) : ?>
-            <form class="mb-5" action="<?= URL ?>category/insertComment/<?= $getId = $item->id ?>#commentSubmitted" method="POST">
+            <form class="mb-5" action="<?= URL ?>category/insertComment/<?= $getId = $item->slug ?>#commentSubmitted" method="POST">
                 <div class="form-group">
                     <label for="comment">Write a comment</label>
                     <textarea class="form-control" name="user_comment" id="comment" rows="3"></textarea>
@@ -48,6 +49,7 @@
     <?php else: ?>
         <?php foreach($this->comments as $comment) : ?>
             <div class="card card-body bg-light mb-3" id="commentSubmitted">
+                <img src="<?= DEFAULT_IMG ?>" width="24" height="24" class="mr-2" alt="" style="border-radius: 50%">
                 <p class="mb-0"><strong class="text-primary"><?= $comment->firstname ?></strong> wrote:</p>
                 <p class="mb-4"><?= $comment->comment_content ?></p>
                 <small class="text-muted"><?= $comment->timestamp ?></small>

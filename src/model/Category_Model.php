@@ -177,7 +177,7 @@
         # Comment feature SQL 
         # **********************
 
-        public function getAllCommentsById($id) {
+        public function getAllCommentsById($slug) {
             $sql = 'SELECT
             user.firstname,
             user.lastname,
@@ -189,7 +189,7 @@
             $obj = $this->db->prepare($sql);
 
             $obj->execute(array(
-                ":post_id" => $id
+                ":post_id" => $slug
             ));
             
             if ($obj->rowCount() > 0) {
@@ -199,6 +199,10 @@
     
             return false;
         }
+
+
+
+
 
         public function userComment($user_comment, $postId) {
             $sql = 'INSERT INTO comments(comment_content, user_id, post_id) VALUES (:comment_content, :user_id, :post_id)';

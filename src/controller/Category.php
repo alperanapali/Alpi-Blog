@@ -33,17 +33,18 @@ class Category extends Controller {
         $this->model->userComment($user_comment, $postId);
 
         # Redirect to same page after comment has been submitted
-        header("Location: " . URL . "category/show/$postId");
+        header("Location: " . URL . "category/show/$postId
+        ");
     }
 
     # ************************
     # Show Post Functionality
     # ************************
 
-    public function show($id) {
+    public function show($slug) {
         # Get all Data needed for post
-        $data = $this->model->getPostById($id);
-        $comments = $this->model->getAllCommentsById($id);
+        $data = $this->model->getPostBySlug($slug);
+        $comments = $this->model->getAllCommentsById($slug);
 
         # Passing it into the view
         $this->view->data = $data;
