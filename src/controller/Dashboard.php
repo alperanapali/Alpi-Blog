@@ -16,7 +16,7 @@
             $uploadedFile = File::uploadImg($post_file);
             $this->model->addPost($category_id, $userId, $post_header, $post_content, $uploadedFile);
     
-            Message::add('Perfect! New post has been added to your blog');
+            Message::add('New post has been added');
             
             header('Location: ' . URL . 'dashboard/add');
         }
@@ -78,7 +78,8 @@
 
         public function addCategory() {
             $getCategory = $_POST['category'];
-            $this->model->insertCategory($getCategory);
+            $getCategory_icon = $_POST['icon'];
+            $this->model->insertCategory($getCategory, $getCategory_icon);
             header("Location: " . URL . "dashboard/category");
         }
 
@@ -166,7 +167,7 @@
         public function doEdit($id) {        
             $post = $_POST;
             $posts = $this->model->getPostById($id);
-            $post['id'] = $id;
+            $post['slug'] = $id;
             $post['header'] = trim($post['header']);
             $post['content'] = trim($post['content']);
             $file_id = $_POST['file_id'];

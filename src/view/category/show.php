@@ -21,8 +21,8 @@
         </div>
 
         <!-- Posted by -->
-        <img src="<?= DEFAULT_IMG ?>" width="24" height="24" class="mr-2" alt="" style="border-radius: 50%">
         <div class="p-2 mb-3">
+            <img src="<?= DEFAULT_IMG ?>" width="24" height="24" class="mr-2" alt="" style="border-radius: 50%">
             Posted by: <?= $item->firstname . ' ' . $item->lastname ?>
         </div>
 
@@ -31,9 +31,10 @@
 
         <!-- If user is logged in enable comment feature -->
         <?php if($user) : ?>
+            <br>
             <form class="mb-5" action="<?= URL ?>category/insertComment/<?= $getId = $item->slug ?>#commentSubmitted" method="POST">
                 <div class="form-group">
-                    <label for="comment">Write a comment</label>
+                    <label for="comment"><b>Write a comment</b></label>
                     <textarea class="form-control" name="user_comment" id="comment" rows="3"></textarea>
                 </div>
                 <button type="submit" class="btn btn-primary">Submit comment</button>

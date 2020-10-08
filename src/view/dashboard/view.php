@@ -23,14 +23,14 @@
                             <td><?= $post->category_name ?></td>
                             <td><?= $post->firstname . ' ' . $post->lastname?></td>
                             <?php if(Session::get('user')['permission'] == "Admin"): ?>
-                                <td><a href="<?= URL; ?>category/show/<?= $post->id; ?>" class="btn btn-dark">View</a></td>
-                                <td><a href="<?= URL; ?>dashboard/edit/<?= $post->id; ?>" class="btn btn-primary">Edit</a></td>
-                                <td><a href="<?= URL; ?>dashboard/delete/<?= $post->id; ?>" class="btn btn-danger">Delete</a></td>
+                                <td><a href="<?= URL; ?>category/show/<?= $post->slug; ?>" class="btn btn-dark">View</a></td>
+                                <td><a href="<?= URL; ?>dashboard/edit/<?= $post->slug; ?>" class="btn btn-primary">Edit</a></td>
+                                <td><a href="<?= URL; ?>dashboard/delete/<?= $post->slug; ?>" class="btn btn-danger">Delete</a></td>
                             <?php elseif(Session::get('user')['permission'] == "Editor"): ?>
-                                <td><a href="<?= URL; ?>category/show/<?= $post->id; ?>" class="btn btn-dark">View</a></td>
-                                <td><a href="<?= URL; ?>dashboard/edit/<?= $post->id; ?>" class="btn btn-primary">Edit</a></td>   
+                                <td><a href="<?= URL; ?>category/show/<?= $post->slug; ?>" class="btn btn-dark">View</a></td>
+                                <td><a href="<?= URL; ?>dashboard/edit/<?= $post->slug; ?>" class="btn btn-primary">Edit</a></td>
                             <?php elseif(Session::get('user')['permission'] == "Guest"): ?>
-                                <td><a href="<?= URL; ?>category/show/<?= $post->id; ?>" class="btn btn-dark">View</a></td>
+                                <td><a href="<?= URL; ?>category/show/<?= $post->slug; ?>" class="btn btn-dark">View</a></td>
                             <?php endif; ?>
                         </tr>
                         <?php endforeach; ?>

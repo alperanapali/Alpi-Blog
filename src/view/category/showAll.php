@@ -9,8 +9,7 @@
 
 <div class="container">
 <h1 class="text-center mt-5">Category: <?= $categoryName ?></h1>
-<p class="text-center text-muted mt-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti non inventore vitae erunt quaerat earum. Perspiciatis commodi necessitatibus quasi voluptatum quisquam incidunt qui, quia ipsam, voluptatibus eligendi aperiam reprehenderit sunt ratione alias vel, corrupti laborum deserunt? Culpa, ut minus.</p>
-    
+
 <section>   
 
 <!-- Search function -->
@@ -28,7 +27,7 @@
 <?php foreach($this->posts as $item) : ?>
     <div class="card">
         <a href="<?= URL; ?>category/show/<?= $item->slug; ?>">
-            <img class="card-img-top" src="<?= URL . $item->image ?>" alt="Card image cap">
+            <img class="card-img-top" width="300px" height="400px" src="<?= URL . $item->image ?>" alt="Card image cap">
         </a>
         <div class="card-body">
                 

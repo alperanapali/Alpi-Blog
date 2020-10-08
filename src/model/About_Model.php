@@ -1,5 +1,7 @@
 <?php
 
-    class About_Model extends Model {
-        
-    }
+
+class About_Model extends Model
+{
+
+}

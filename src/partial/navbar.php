@@ -1,5 +1,6 @@
 <?php
     $categories = Session::get('categories');
+    $categoryIcons = Session::get('category_icons');
     $activeCategory = Session::get('activeCategory');
     // $activeCategoryName = isset($categories[$activeCategory]);
 ?>
@@ -22,8 +23,7 @@
                 <a class="nav-link dropdown-toggle <?= (Session::get('controller_name') == 'Categories') ? 'active' : '' ?>" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Categories</a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                     <?php foreach($categories as $key => $value) : ?>
-                        
-                        <a class="dropdown-item" href="<?= URL ?>category/showCategory/<?= $key ?>"><?= $value ?></a>
+                        <a class="dropdown-item" href="<?= URL ?>category/showCategory/<?= $key ?>"><i class="fa fa-<?=$categoryIcons[$value]?>"></i>  <?= $value ?></a>
 
                     <?php endforeach; ?>
                 </div>
@@ -35,6 +35,10 @@
 
             <li class="nav-item">
                 <a class="nav-link <?= (Session::get('controller_name') == 'Contact') ? 'active' : '' ?>" href="<?= URL ?>contact">Contact</a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link <?= (Session::get('controller_name') == 'Cv') ? 'active' : '' ?>" href="<?= URL ?>cv">Cv</a>
             </li>
         </ul>
         <ul class="navbar-nav ml-auto">

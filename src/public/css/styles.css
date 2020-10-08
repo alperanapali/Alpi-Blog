@@ -23,6 +23,7 @@ section {
 }
 
 
+
 #mainNav {
     background-color: #000;
 }
@@ -137,7 +138,7 @@ hr.dark {
 header.masthead {
     text-align: left;
     color: #fff;
-    background-image: url(../img/header-bg.jpg);
+    background-image: url(../img/neon-bg.jpg);
     background-repeat: no-repeat;
     background-attachment: scroll;
     background-position: center center;
