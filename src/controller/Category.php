@@ -17,7 +17,6 @@ class Category extends Controller {
         $this->view->render('category/showAll');
     }
 
-
     # **********************
     # Comment functionality
     # **********************
@@ -58,7 +57,7 @@ class Category extends Controller {
     # ************************
 
     public function index() {
-        $this->view->render('category/digitalminimalism');
+        $this->view->render('category');
     }
 
 }

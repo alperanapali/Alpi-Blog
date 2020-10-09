@@ -9,3 +9,8 @@
     color: #3A3A3A;
     background-color: transparent;
 }
+
+section {
+    padding-top: 8rem;
+    padding-bottom: 8rem;
+}

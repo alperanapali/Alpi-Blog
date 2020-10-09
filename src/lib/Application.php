@@ -29,14 +29,13 @@ class Application {
 
         $file = 'controller/' . $url[0] . '.php';
         if (file_exists($file)) {
+            /** @var string $file */
             require $file;
         } else {
             echo "(404) No \"$url[0]\" controller found <br />";
         }
 
         $controller = new $url[0];
-        
-
 
         //------------------------------------------------------
         // Load a Model (if exists)
@@ -60,25 +59,9 @@ class Application {
             }
         }
 
-
-
-
-
-
-
-
-
-
-
         //---------------------------------------------------------
         // Rendering
         $controller->index();
-
-        
-
-
-
-
 
     }
 

@@ -1,4 +1,3 @@
-<!--public/img/alper-flight.jpg-->
 
 <div class="text-center">
     <img src="public/img/alper-flight.jpg" class="rounded float-left" alt="Profile" height="300px" >
@@ -20,6 +19,8 @@
                     University.</p>
                 <p>I would define myself as a creative person who
                     constantly comes up with new ideas and approaches.</p>
+                <a href="https://github.com/alperanapali/Alpi-Blog/tree/slugged" target="_blank"><i class="fa fa-github" aria-hidden="true"></i>
+                     Git Hub</a>
             </div>
         </div>
     </div>
@@ -27,6 +28,7 @@
         <div class="card-header" id="headingTwo">
             <h2 class="mb-0">
                 <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                    <i class="fa fa-space-shuttle" aria-hidden="true"></i>
                     Skills
                 </button>
             </h2>
@@ -41,6 +43,7 @@
         <div class="card-header" id="headingThree">
             <h2 class="mb-0">
                 <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                    <i class="fa fa-futbol-o" aria-hidden="true"></i>
                     Hobbies
                 </button>
             </h2>
@@ -54,13 +57,18 @@
     </div>
 </div>
 
-<div>
-    <h2> <i class="fa fa-graduation-cap" aria-hidden="true"></i>
-         Education</h2>
-</div>
+<br>
+<br>
+<br>
+<br>
+<br>
 
 <div class="row" >
     <div class="col-4">
+        <div>
+            <h2> <i class="fa fa-graduation-cap" aria-hidden="true"></i>
+                Education</h2>
+        </div>
         <div class="list-group" id="list-tab-edu" role="tablist">
             <a class="list-group-item list-group-item-action active" id="list-uni-list" data-toggle="list" href="#list-uni" role="tab" aria-controls="uni">ISTANBUL TECHNICAL UNIVERSITY</a>
             <a class="list-group-item list-group-item-action" id="list-eras-list" data-toggle="list" href="#list-eras" role="tab" aria-controls="eras">TECHNISHE UNIVERSITAT WIEN</a>
@@ -91,14 +99,13 @@
     </div>
 </div>
 
-<div>
-    <br>
-    <h2> <i class="fa fa-briefcase" aria-hidden="true"></i>
-        Work Experience</h2>
-</div>
-
 <div class="row" >
     <div class="col-4">
+        <div>
+            <br>
+            <h2> <i class="fa fa-briefcase" aria-hidden="true"></i>
+                Work Experience</h2>
+        </div>
         <div class="list-group" id="list-tab-work" role="tablist">
             <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#list-home" role="tab" aria-controls="home">Home</a>
             <a class="list-group-item list-group-item-action" id="list-profile-list" data-toggle="list" href="#list-profile" role="tab" aria-controls="profile">Profile</a>
@@ -115,3 +122,4 @@
         </div>
     </div>
 </div>
+<br>

@@ -17,9 +17,12 @@
                 <div class="col-md-4">
                     <h5 class="text-white">Media</h5>
                     <ul class="list-group">
-                        <li><a href="https://www.instagram.com/alperanapali/">Instagram</a></li>
-                        <li><a href="#!">Twitter</a></li>
-                        <li><a href="https://www.linkedin.com/in/alper-anapal%C4%B1-1b94b193/">LinkedIn</a></li>
+                        <li><a href="https://www.instagram.com/alperanapali/" target="_blank" ><i class="fa fa-instagram" aria-hidden="true"></i>
+                                 Instagram</a></li>
+                        <li><a href="https://github.com/alperanapali" target="_blank" ><i class="fa fa-github" aria-hidden="true"></i>
+                                 GitHub</a></li>
+                        <li><a href="https://www.linkedin.com/in/alper-anapal%C4%B1-1b94b193/" target="_blank" ><i class="fa fa-linkedin" aria-hidden="true"></i>
+                                 LinkedIn</a></li>
                     </ul>
                 </div>
 

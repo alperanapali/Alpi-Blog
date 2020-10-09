@@ -200,10 +200,6 @@
             return false;
         }
 
-
-
-
-
         public function userComment($user_comment, $postId) {
             $sql = 'INSERT INTO comments(comment_content, user_id, post_id) VALUES (:comment_content, :user_id, :post_id)';
             $obj = $this->db->prepare($sql);
