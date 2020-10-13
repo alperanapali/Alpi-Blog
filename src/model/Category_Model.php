@@ -96,7 +96,7 @@
             return false;
         }
 
-        //TODO add slug to database and the slugify class
+        //TODO add slug to category database and the slugify class
         public function getPostBySlug($slug) {
             $sql = 'SELECT user.firstname, user.lastname, file.image, file.thumb, category.category_name, posts.*
             FROM user

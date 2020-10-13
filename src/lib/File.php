@@ -171,7 +171,6 @@ class File  {
         $img_path       = "{$img_dir}{$img_name}{$img_type}";
         $thumb_path     = "{$img_dir}{$img_name}".IMAGE_THUMB_EXT."{$img_type}";
 
-        // TODO: ForLoop if more then one thumb-size
         if (!empty($thumb)) {
             $thumb_height   = $thumb[1];
             $thumb_width    = $thumb[0];
