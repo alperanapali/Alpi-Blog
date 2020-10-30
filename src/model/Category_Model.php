@@ -81,21 +81,46 @@
             ON file.id = posts.file_id
             JOIN category
             ON category.id = posts.category_id WHERE posts.id = :id';
-    
+
             $obj = $this->db->prepare($sql);
-    
+
             $obj->execute(array(
                 ":id" => $id
             ));
-            
+
             if($obj->rowCount() > 0) {
                 $data = $obj->fetchAll(PDO::FETCH_OBJ);
                 return $data;
             }
-        
+
             return false;
         }
-        
+
+        //TODO add slug to database and the slugify class
+        public function getPostBySlug($slug) {
+            $sql = 'SELECT user.firstname, user.lastname, file.image, file.thumb, category.category_name, posts.*
+            FROM user
+            JOIN posts
+            ON user.id = posts.user_id
+            JOIN file
+            ON file.id = posts.file_id
+            JOIN category
+            ON category.id = posts.category_id WHERE posts.slug = :slug';
+
+            $obj = $this->db->prepare($sql);
+
+            $obj->execute(array(
+                ":slug" => $slug
+            ));
+
+            if($obj->rowCount() > 0) {
+                $data = $obj->fetchAll(PDO::FETCH_OBJ);
+                return $data;
+            }
+
+            return false;
+        }
+
         public function getPostsByCategoryId($id, $search) {
             $sql = 'SELECT user.firstname, user.lastname, file.image, file.thumb, category.category_name, posts.*
             FROM user
@@ -105,7 +130,8 @@
             ON file.id = posts.file_id
             JOIN category
             ON category.id = posts.category_id
-            WHERE category.id = :id AND posts.header LIKE :search';
+            WHERE category.id = :id AND posts.header LIKE :search
+            ORDER BY timestamp DESC';
 
             $obj = $this->db->prepare($sql);
 
@@ -151,20 +177,19 @@
         # Comment feature SQL 
         # **********************
 
-        public function getAllCommentsById($id) {
+        public function getAllCommentsById($slug) {
             $sql = 'SELECT
-            USER.firstname,
-            USER.lastname,
+            user.firstname,
+            user.lastname,
                 comments.*
-            FROM
-                comments
-            LEFT JOIN USER ON USER.id = comments.user_id
+            FROM comments
+            LEFT JOIN user ON user.id = comments.user_id
             WHERE post_id = :post_id';
 
             $obj = $this->db->prepare($sql);
 
             $obj->execute(array(
-                ":post_id" => $id
+                ":post_id" => $slug
             ));
             
             if ($obj->rowCount() > 0) {
@@ -175,6 +200,10 @@
             return false;
         }
 
+
+
+
+
         public function userComment($user_comment, $postId) {
             $sql = 'INSERT INTO comments(comment_content, user_id, post_id) VALUES (:comment_content, :user_id, :post_id)';
             $obj = $this->db->prepare($sql);
@@ -184,5 +213,5 @@
                 ":post_id" => $postId
             ));
         }
-        
+
     }

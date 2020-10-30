@@ -24,8 +24,4 @@ class Controller {
         }
 
     }
-
-    //TODO make function index abstract
-    //abstract function index();
-
 }

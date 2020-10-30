@@ -25,7 +25,7 @@
                                 <td><?= $post->header ?></td>
                                 <td><?= $post->category_name ?></td>
                                 <td><?= $post->firstname . ' ' . $post->lastname?></td>
-                                <td><a href="<?= URL; ?>dashboard/view/<?= $post->id; ?>" class="btn btn-dark">View</a></td>
+                                <td><a href="<?= URL; ?>category/show/<?= $post->id; ?>" class="btn btn-dark">View</a></td>
                                 <td><a href="<?= URL; ?>dashboard/edit/<?= $post->id; ?>" class="btn btn-primary">Edit</a></td>
                                 <td><a href="<?= URL; ?>dashboard/delete/<?= $post->id; ?>" class="btn btn-danger">Delete</a></td>
                             </tr>

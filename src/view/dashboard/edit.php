@@ -24,7 +24,7 @@
         <?php endif; ?>
 
         <?php foreach($this->posts as $post) : ?>
-        <form action="<?php echo URL; ?>dashboard/doEdit/<?= $post->id ?>" method="POST" enctype="multipart/form-data">
+        <form action="<?php echo URL; ?>dashboard/doEdit/<?= $post->slug ?>" method="POST" enctype="multipart/form-data">
 
             <div class="form-group">
                 <label for="title">Title:</label>

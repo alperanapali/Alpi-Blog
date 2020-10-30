@@ -1,11 +1,10 @@
-
 <!-- Header -->
 <header class="masthead">
     <div class="container">
         <div class="intro-text">
-            <h4 class="text-uppercase">Get started with digital mindfulness</h4>
-            <div class="intro-heading">Great technology creates focus, joy, and human </br>connection. Find out how.</div>
-            <a class="btn btn-xl text-white text-uppercase" href="<?=URL?>category/showCategory/1">Read More</a><i class="fa fa-angle-right"></i>
+            <h4 class="text-uppercase">Check out some tasty food</h4>
+            <div class="intro-heading">Let us know about your amazing recipes </br> Be careful if you are not full</div>
+            <a class="btn btn-xl text-white text-uppercase" href="<?=URL?>category/showCategory/12">Read More</a><i class="fa fa-angle-right"></i>
         </div>
     </div>
 </header>
@@ -16,19 +15,20 @@
 
 <!-- Content Cards -->
 <section>
-    <div class="card-columns">
+
+<div class="card-columns">
 
 <?php foreach($this->post as $item) : ?>
-        <div class="card d-none">
-            <a href="<?= URL; ?>category/show/<?= $item->id; ?>">
-                <img class="card-img-top" src="<?= $item->image ?>" alt="Card image cap">
+        <div class="card" width="300px" height="400px">
+            <a href="<?= URL; ?>category/show/<?= $item->slug; ?>">
+                <img class="card-img-top"  src="<?= $item->image ?>" alt="Card image cap">
             </a>
             <div class="card-body">
                     
                 <p class="card-text mb-0 text-muted"><small><?= $item->category_name ?></small></p>
                     
                 <h5 class="card-title"><?= $item->header ?></h5>
-                <p class="card-text"><?= substr($item->content, 0, 100) ?>...<a href="<?= URL; ?>category/show/<?= $item->id; ?>">read more</a></p>
+                <p class="card-text"><?= substr($item->content, 0, 50) ?>...<a href="<?= URL; ?>category/show/<?= $item->slug; ?>"> read more</a></p>
                 <div class="row">
                     <div class="col">
                         <p class="card-text"><small class="text-muted"><?= $item->timestamp ?></small></p>
@@ -42,7 +42,7 @@
         </div>
     
 <?php endforeach; ?>
-    </div>
+</div>
 
 
     <!-- Pagination start -->

@@ -2,7 +2,7 @@
 
 
 //---------------------------------------------------------
-//Debug ?
+//Debug Panel Activation
 
 define('DEBUG_MODE', false);
 

@@ -103,4 +103,5 @@ class Auth_Model extends Model {
 
         return false;
     }
+
 }

@@ -6,12 +6,12 @@ body {
 
 .alert-success {
   z-index: 999;
-  width: 90%;
+  width: 70%;
 }
 
 .alert-danger {
   z-index: 999;
-  width: 90%;
+  width: 70%;
 }
 
 .card-title {
@@ -169,7 +169,7 @@ hr.dark {
 header.masthead {
   text-align: left;
   color: #fff;
-  background-image: url(../img/header-bg.jpg);
+  background-image: url(../img/neon-bg.jpg);
   background-repeat: no-repeat;
   background-attachment: scroll;
   background-position: center center;

@@ -9,8 +9,7 @@
 
 <div class="container">
 <h1 class="text-center mt-5">Category: <?= $categoryName ?></h1>
-<p class="text-center text-muted mt-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti non inventore vitae erunt quaerat earum. Perspiciatis commodi necessitatibus quasi voluptatum quisquam incidunt qui, quia ipsam, voluptatibus eligendi aperiam reprehenderit sunt ratione alias vel, corrupti laborum deserunt? Culpa, ut minus.</p>
-    
+
 <section>   
 
 <!-- Search function -->
@@ -27,15 +26,15 @@
 <div class="card-columns">
 <?php foreach($this->posts as $item) : ?>
     <div class="card">
-        <a href="<?= URL; ?>category/show/<?= $item->id; ?>">
-            <img class="card-img-top" src="<?= URL . $item->image ?>" alt="Card image cap">
+        <a href="<?= URL; ?>category/show/<?= $item->slug; ?>">
+            <img class="card-img-top" width="300px" height="400px" src="<?= URL . $item->image ?>" alt="Card image cap">
         </a>
         <div class="card-body">
                 
             <p class="card-text mb-0 text-muted"><small><?= $item->category_name ?></small></p>
                 
             <h5 class="card-title"><?= $item->header ?></h5>
-            <p class="card-text"><?= substr($item->content, 0, 100) ?>...<a href="<?= URL; ?>category/show/<?= $item->id; ?>">read more</a></p>
+            <p class="card-text"><?= substr($item->content, 0, 100) ?>...<a href="<?= URL; ?>category/show/<?= $item->slug; ?>">read more</a></p>
             <div class="row">
                 <div class="col">
                     <p class="card-text"><small class="text-muted"><?= $item->timestamp ?></small></p>

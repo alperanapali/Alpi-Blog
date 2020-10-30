@@ -20,7 +20,7 @@
     
             // 2. Step: insert Post ----------------------------------------------------------------------------------------------
     
-            $sql = 'INSERT INTO posts(header, content, user_id, file_id, category_id) VALUES (:header, :content, :user_id, :file_id, :category_id)';
+            $sql = 'INSERT INTO posts(header, content, user_id, file_id, category_id, slug) VALUES (:header, :content, :user_id, :file_id, :category_id, :slug)';
             
             $obj = $this->db->prepare($sql);
             
@@ -30,6 +30,7 @@
                 ":user_id" => $userId,
                 ":file_id" => $file_id,
                 ":category_id" => $category_id,
+                ":slug" => Slugify::generateSlug($post_header),
             ));
     
             return $result1 && $result2;
@@ -151,7 +152,7 @@
             return false;
         }
     
-        public function getPostById($id) {
+        public function getPostById($slug) {
             $sql = "SELECT user.firstname, user.lastname, file.image, file.thumb, category.category_name, posts.*
             FROM user
             JOIN posts
@@ -159,12 +160,12 @@
             JOIN file
             ON file.id = posts.file_id
             JOIN category
-            ON category.id = posts.category_id WHERE posts.id = :id";
+            ON category.id = posts.category_id WHERE posts.slug = :slug";
 
             $obj = $this->db->prepare($sql);
     
             $obj->execute(array(
-                ":id" => $id
+                ":slug" => $slug
             ));
             
             if($obj->rowCount() > 0) {
@@ -251,12 +252,12 @@
         }
 
         public function updatePost($data) {
-            $sql = "UPDATE posts SET header = :header, content = :content WHERE id = :id";
+            $sql = "UPDATE posts SET header = :header, content = :content WHERE slug = :slug";
     
             $obj = $this->db->prepare($sql);
     
             $obj->execute(array(
-                ":id" => $data["id"],
+                ":slug" => $data["slug"],
                 ":header" => $data["header"],
                 ":content" => $data["content"]
             ));
@@ -276,12 +277,13 @@
             return false;
         }
 
-        public function insertCategory($categoryName) {
-            $sql = "INSERT INTO category(category_name) VALUES (:category_name)";
+        public function insertCategory($categoryName, $icon_name) {
+            $sql = "INSERT INTO category(category_name, icon_name) VALUES (:category_name, :icon_name)";
             $obj = $this->db->prepare($sql);
     
             $obj->execute(array(
-                ":category_name" => $categoryName
+                ":category_name" => $categoryName,
+                ":icon_name" => $icon_name
             ));
     
             if($obj->rowCount() > 0) {
@@ -369,12 +371,12 @@
 
         public function deletePost($id) {
 
-            $sql = 'DELETE FROM posts WHERE id = :id LIMIT 1;';
+            $sql = 'DELETE FROM posts WHERE slug = :slug LIMIT 1;';
     
             $obj = $this->db->prepare($sql);
     
             $result = $obj->execute(array(
-                ':id' => $id
+                ':slug' => $id
             ));
     
             return $result;
